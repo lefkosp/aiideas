@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+@import '@angular/material/_theming';
+
+// Define your theme
+$app-primary: mat-palette($mat-purple);
+$app-accent:  mat-palette($mat-green, A200, A100, A400);
+$app-warn:    mat-palette($mat-red);
+$app-theme:   mat-dark-theme($app-primary, $app-accent, $app-warn);
+$background-color: map-get(map-get($app-theme, background), background);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-section-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.mat-mdc-form-field-subscript-wrapper{
+    display: none;
+}
+
+body{
+    background: $background-color;
+    color: #efefef;
+}
+
+.primary-btn{
+    padding: 1rem 1.5rem !important;
+    font-size: larger;
+    font-weight: 600;
+    background-color: #7b1fa2 !important;
+    border: solid 1px #7b1fa2;
+    color: #efefef !important;
+    border-radius: 2rem !important;
+    box-shadow: 0px 0px 10px #7b1fa2;
+}
+
+.primary-btn:hover{
+    background-color: #b711ff !important;
+    color: #ffffff !important;
+    box-shadow: 0px 0px 20px #b026ebba;
+    transition: all ease 0.3s;
+}
