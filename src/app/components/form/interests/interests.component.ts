@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-interests',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./interests.component.scss']
 })
 export class InterestsComponent {
-
+  @Input() public form!: FormGroup
 }

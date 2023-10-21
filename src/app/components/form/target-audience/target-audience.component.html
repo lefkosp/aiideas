@@ -1,12 +1,26 @@
-<div class="form-section-container">
+<div class="form-section-container" [formGroup]="audience">
+  <h3>Target Audience</h3>
+  <span
+    >Describe the specific group of people or customers you intend to serve with
+    your business and any insights you have about their needs or problems.</span
+  >
 
-    <h3>Target Audience</h3>
-    <span>Describe the specific group of people or customers you intend to serve with your business and any insights you have about their needs or problems.</span>
-    
-    <mat-form-field>
-        <span class="fw-bold">Specify target audience</span><input matInput type="text" placeholder="Content creators" />
-    </mat-form-field>
-    <mat-form-field>
-        <span class="fw-bold">Audience insights</span><input matInput type="text" placeholder="Editing videos takes a lot of time." />
-    </mat-form-field>
+  <mat-form-field>
+    <span class="fw-bold">Specify target audience</span
+    ><input
+      matInput
+      type="text"
+      formControlName="targetAudience"
+      placeholder="Content creators"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <span class="fw-bold">Audience insights</span
+    ><input
+      matInput
+      type="text"
+      formControlName="audienceInsights"
+      placeholder="Editing videos takes a lot of time."
+    />
+  </mat-form-field>
 </div>

@@ -1,9 +1,18 @@
-<div class="form-section-container">
+<div class="form-section-container" [formGroup]="form">
+  <h3>Legal and Regulatory Requirements</h3>
+  <span
+    >Mention any knowledge you have about legal or regulatory requirements that
+    may apply to your business concept, as these can impact planning and
+    execution.</span
+  >
 
-    <h3>Legal and Regulatory Requirements</h3>
-    <span>Mention any knowledge you have about legal or regulatory requirements that may apply to your business concept, as these can impact planning and execution.</span>
-    
-    <mat-form-field>
-        <span class="fw-bold">Regulatory Requirements</span><input matInput type="text" placeholder="Aware of the need for food service permits for my catering business." />
-    </mat-form-field>
+  <mat-form-field>
+    <span class="fw-bold">Regulatory Requirements</span
+    ><input
+      matInput
+      type="text"
+      formControlName="legal"
+      placeholder="Aware of the need for food service permits for my catering business."
+    />
+  </mat-form-field>
 </div>

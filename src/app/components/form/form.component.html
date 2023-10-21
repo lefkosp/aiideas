@@ -1,29 +1,29 @@
-<form class="form-container" #f="ngForm" (ngSubmit)="submit(f)">
-    <app-personal-background />
-
-    <app-interests />
-
-    <app-skills />
-
-    <app-resources />
-
-    <app-market />
-
-    <app-goals />
-
-    <app-target-audience />
-
-    <app-industry />
-
-    <app-risk />
-
-    <app-vision />
-
-    <app-time />
-
-    <app-geo />
-
-    <app-legal />
+<form class="form-container" [formGroup]="form" (ngSubmit)="submit()">
+    <app-personal-background [form]="form"></app-personal-background>
+    
+    <app-interests [form]="form"></app-interests>
+    
+    <app-skills [form]="form"></app-skills>
+    
+    <app-resources [form]="form"></app-resources>
+    
+    <app-market [form]="form"></app-market>
+    
+    <app-goals [form]="form"></app-goals>
+    
+    <app-target-audience [form]="form"></app-target-audience>
+    
+    <app-industry [form]="form"></app-industry>
+    
+    <app-risk [form]="form"></app-risk>
+    
+    <app-vision [form]="form"></app-vision>
+    
+    <app-time [form]="form"></app-time>
+    
+    <app-geo [form]="form"></app-geo>
+    
+    <app-legal [form]="form"></app-legal>
 
     <div class="actions-container">
         <button mat-button color="primary" class="submit-btn primary-btn" type="submit">Generate Idea!</button>

@@ -1,8 +1,17 @@
-<div class="form-section-container">
-    <h3>Geographic Considerations</h3>
-    <span>If geographic factors are relevant to your business idea, explain any constraints or considerations associated with location.</span>
-    
-    <mat-form-field>
-        <span class="fw-bold">Geographic constraints/considerations</span><input matInput type="text" placeholder="I prefer to operate the business locally in New York City." />
-    </mat-form-field>
+<div class="form-section-container" [formGroup]="form">
+  <h3>Geographic Considerations</h3>
+  <span
+    >If geographic factors are relevant to your business idea, explain any
+    constraints or considerations associated with location.</span
+  >
+
+  <mat-form-field>
+    <span class="fw-bold">Geographic constraints/considerations</span
+    ><input
+      matInput
+      type="text"
+      formControlName="geo"
+      placeholder="I prefer to operate the business locally in New York City."
+    />
+  </mat-form-field>
 </div>

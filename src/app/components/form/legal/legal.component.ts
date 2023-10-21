@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-legal',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./legal.component.scss']
 })
 export class LegalComponent {
-
+  @Input() public form!: FormGroup
 }

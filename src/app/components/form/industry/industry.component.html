@@ -1,8 +1,17 @@
-<div class="form-section-container">
-    <h3>Industry</h3>
-    <span>Share your interest in certain industries or markets driven by recent trends and whether you've researched competitors in these areas.</span>
-    
-    <mat-form-field>
-        <span class="fw-bold">Specify Industry</span><input matInput type="text" placeholder="Interested in the sustainable fashion industry." />
-    </mat-form-field>
+<div class="form-section-container" [formGroup]="form">
+  <h3>Industry</h3>
+  <span
+    >Share your interest in certain industries or markets driven by recent
+    trends and whether you've researched competitors in these areas.</span
+  >
+
+  <mat-form-field>
+    <span class="fw-bold">Specify Industry</span
+    ><input
+      matInput
+      type="text"
+      formControlName="industry"
+      placeholder="Interested in the sustainable fashion industry."
+    />
+  </mat-form-field>
 </div>

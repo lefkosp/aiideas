@@ -1,9 +1,10 @@
-<div class="form-section-container">
+<div class="form-section-container" [formGroup]="form">
 
     <h3>Market Preferences</h3>
     <span>Indicate whether you prefer an online or offline business model and if you have any geographic preferences for the location of your business.</span>
     
     <mat-form-field>
-        <span class="fw-bold">Business Type</span><input matInput type="text" placeholder="Online, Offline or Combination" />
+        <span class="fw-bold">Business Type</span>
+        <input matInput type="text" formControlName="marketPreferences" placeholder="Online, Offline or Combination" />
     </mat-form-field>
 </div>

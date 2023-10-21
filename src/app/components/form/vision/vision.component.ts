@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-vision',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./vision.component.scss']
 })
 export class VisionComponent {
-
+  @Input() public form!: FormGroup
 }

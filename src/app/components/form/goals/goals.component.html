@@ -1,11 +1,26 @@
-<div class="form-section-container">
-    <h3>Goals and Objectives</h3>
-    <span>State your short-term and long-term business goals and clarify whether you are seeking a full-time or part-time business venture.</span>
-    
-    <mat-form-field>
-        <span class="fw-bold">Short Term</span><input matInput type="text" placeholder="Launch a profitable side business within 6 months." />
-    </mat-form-field>
-    <mat-form-field>
-        <span class="fw-bold">Long Term</span><input matInput type="text" placeholder="Expand the business into a full-time venture within 2 years." />
-    </mat-form-field>
+<div class="form-section-container" [formGroup]="goals">
+  <h3>Goals and Objectives</h3>
+  <span
+    >State your short-term and long-term business goals and clarify whether you
+    are seeking a full-time or part-time business venture.</span
+  >
+
+  <mat-form-field>
+    <span class="fw-bold">Short Term</span
+    ><input
+      matInput
+      type="text"
+      formControlName="shortTerm"
+      placeholder="Launch a profitable side business within 6 months."
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <span class="fw-bold">Long Term</span
+    ><input
+      matInput
+      type="text"
+      formControlName="longTerm"
+      placeholder="Expand the business into a full-time venture within 2 years."
+    />
+  </mat-form-field>
 </div>

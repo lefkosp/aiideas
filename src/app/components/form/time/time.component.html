@@ -1,9 +1,17 @@
-<div class="form-section-container">
+<div class="form-section-container" [formGroup]="form">
+  <h3>Time Commitment</h3>
+  <span
+    >Specify how much time you can realistically commit to your business on a
+    regular basis, which influences the scale and nature of the business.</span
+  >
 
-    <h3>Time Commitment</h3>
-    <span>Specify how much time you can realistically commit to your business on a regular basis, which influences the scale and nature of the business.</span>
-    
-    <mat-form-field>
-        <span class="fw-bold">Weekly time</span><input matInput type="text" placeholder="10-20 hours per week" />
-    </mat-form-field>
+  <mat-form-field>
+    <span class="fw-bold">Weekly time</span
+    ><input
+      matInput
+      type="text"
+      formControlName="time"
+      placeholder="10-20 hours per week"
+    />
+  </mat-form-field>
 </div>

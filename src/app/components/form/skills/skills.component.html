@@ -1,9 +1,10 @@
-<div class="form-section-container">
+<div class="form-section-container" [formGroup]="form">
 
     <h3>Skills and Talents</h3>
     <span>List the specific skills and talents you possess, whether they are technical, creative, or leadership skills. These abilities can be leveraged in your business venture.</span>
     
     <mat-form-field>
-        <span class="fw-bold">Skills and Talents</span><input matInput type="text" placeholder="I'm skilled in data analysis, attention to detail, and problem-solving." />
+        <span class="fw-bold">Skills and Talents</span>
+        <input matInput type="text" formControlName="skills" placeholder="I'm skilled in data analysis, attention to detail, and problem-solving." />
     </mat-form-field>
 </div>
