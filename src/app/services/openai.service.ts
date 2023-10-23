@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { OpenAI } from 'openai';
 import { Observable } from 'rxjs';
+import OPENAI_API_KEY from '../../api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OpenaiService {
   private readonly openai = new OpenAI({
-    apiKey: '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',
+    apiKey: OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
   });
 
