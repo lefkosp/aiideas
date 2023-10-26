@@ -4,33 +4,36 @@
   [formGroup]="form"
   (ngSubmit)="submit()"
 >
-  <app-personal-background [form]="form"></app-personal-background>
+  <app-personal-background
+    class="form-section"
+    [form]="form"
+  ></app-personal-background>
 
-  <app-interests [form]="form"></app-interests>
+  <app-interests class="form-section" [form]="form"></app-interests>
 
-  <app-skills [form]="form"></app-skills>
+  <app-skills class="form-section" [form]="form"></app-skills>
 
-  <app-resources [form]="form"></app-resources>
+  <app-resources class="form-section" [form]="form"></app-resources>
 
-  <app-market [form]="form"></app-market>
+  <app-market class="form-section" [form]="form"></app-market>
 
-  <app-goals [form]="form"></app-goals>
+  <app-goals class="form-section" [form]="form"></app-goals>
 
-  <app-target-audience [form]="form"></app-target-audience>
+  <app-target-audience class="form-section" [form]="form"></app-target-audience>
 
-  <app-industry [form]="form"></app-industry>
+  <app-industry class="form-section" [form]="form"></app-industry>
 
-  <app-risk [form]="form"></app-risk>
+  <app-risk class="form-section" [form]="form"></app-risk>
 
-  <app-vision [form]="form"></app-vision>
+  <app-vision class="form-section" [form]="form"></app-vision>
 
-  <app-time [form]="form"></app-time>
+  <app-time class="form-section" [form]="form"></app-time>
 
-  <app-geo [form]="form"></app-geo>
+  <app-geo class="form-section" [form]="form"></app-geo>
 
-  <app-legal [form]="form"></app-legal>
+  <app-legal class="form-section" [form]="form"></app-legal>
 
-  <div class="actions-container">
+  <div class="actions-container form-section">
     <button
       mat-button
       color="primary"
@@ -42,7 +45,13 @@
   </div>
 </form>
 
-<mat-spinner *ngIf="loading"></mat-spinner>
+<div class="spinner">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <div class="text">
+    <span>Thanks for submitting!</span>
+    <span>Hang tight..</span>
+  </div>
+</div>
 
 <div *ngIf="businessIdea && !loading">
   {{ businessIdea }}

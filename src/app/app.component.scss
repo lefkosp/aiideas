@@ -1,15 +1,19 @@
-:host{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.main-container{
-    display: flex;
-    flex-direction: column;
-    min-width: fit-content;
-    max-width: 60%;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem;
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+  max-width: 60%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+
+  h1 {
+    margin: 2rem 0 1rem 0;
+  }
 }

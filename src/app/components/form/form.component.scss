@@ -1,16 +1,58 @@
-:host{
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  height: 100vh; /* Set the container's height to the viewport height */
+}
+
+.form-section {
+  scroll-snap-align: start;
+  width: 100%; /* Expand sections to full width */
+  max-width: 600px; /* Set a maximum width for your sections */
+  text-align: center; /* Center content within sections */
+  margin: auto; /* Center sections vertically within the container */
+}
+
+::-webkit-scrollbar {
+  width: 0.1em; /* Set the width of the scrollbar to a very small value */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Make the scrollbar thumb transparent */
+}
+
+.actions-container {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh + 10rem);
+  align-self: center;
+}
+
+.spinner {
+  height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  .text {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
     align-items: center;
-    gap: 2rem;
-}
-
-.form-container{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.actions-container{
-    align-self: center;
+    justify-content: center;
+  }
 }

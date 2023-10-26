@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { OpenaiService } from 'src/app/services/openai.service';
 
@@ -13,6 +13,38 @@ export class FormComponent implements OnInit {
   public loading: boolean = false;
 
   constructor(private fb: FormBuilder, private openaiService: OpenaiService) {}
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    // Determine the current scroll position
+    const scrollY = window.scrollY;
+
+    // Calculate the index of the section to snap to
+    const sections = document.querySelectorAll('.form-section');
+    let targetSectionIndex = 0;
+
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const sectionTop = section.getBoundingClientRect().top;
+
+      if (sectionTop > scrollY) {
+        break; // Found the section to snap to
+      }
+
+      targetSectionIndex = i;
+    }
+
+    // Scroll to the target section
+    const targetSection = sections[targetSectionIndex];
+    this.scrollToSection(targetSection);
+  }
+
+  scrollToSection(section: Element): void {
+    section.scrollIntoView({
+      behavior: 'smooth', // Enable smooth scrolling
+      block: 'start', // Align the start of the section with the top of the viewport
+    });
+  }
 
   ngOnInit(): void {
     this.form = this.fb.group({
