@@ -19,6 +19,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   scrollbar-width: none;
   overflow: hidden;
+  background: $background-color;
+  color: #efefef;
 }
 
 .form-section-container {
@@ -31,11 +33,6 @@ body {
 
 .mat-mdc-form-field-subscript-wrapper {
   display: none;
-}
-
-body {
-  background: $background-color;
-  color: #efefef;
 }
 
 .primary-btn {

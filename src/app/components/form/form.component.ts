@@ -46,6 +46,31 @@ export class FormComponent implements OnInit {
     });
   }
 
+  public focusOnNextInputField(event: Event) {
+    event.preventDefault();
+
+    const currentInput = event.target as HTMLInputElement;
+    const inputs = document.querySelectorAll('input, textarea');
+    let found = false;
+
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i] === currentInput) {
+        if (i < inputs.length - 1) {
+          // Focus on the next input within the same section
+          const nextInput = inputs[i + 1] as HTMLInputElement;
+          nextInput.focus();
+          found = true;
+          break;
+        }
+      }
+    }
+
+    if (!found) {
+      // If there's no next input to focus on, submit the form
+      this.submit();
+    }
+  }
+
   ngOnInit(): void {
     this.form = this.fb.group({
       personalBackground: this.fb.group({

@@ -1,10 +1,14 @@
 <div class="form-section-container" [formGroup]="form">
+  <h3>Interests and Passions</h3>
+  <span>Describe your hobbies, interests, and what excites you.</span>
 
-    <h3>Interests and Passions</h3>
-    <span>Discuss your hobbies, interests, and the areas that genuinely excite and engage you. This can help uncover potential business ideas related to your passions.</span>
-    
-    <mat-form-field>
-        <span class="fw-bold">Hobbies and Interests</span>
-        <input matInput type="text" formControlName="interests" placeholder="I'm passionate about hiking, cooking, and photography." />
-    </mat-form-field>
+  <mat-form-field>
+    <span class="fw-bold">Hobbies and Interests</span>
+    <input
+      matInput
+      type="text"
+      formControlName="interests"
+      placeholder="I'm passionate about hiking, cooking, and photography."
+    />
+  </mat-form-field>
 </div>

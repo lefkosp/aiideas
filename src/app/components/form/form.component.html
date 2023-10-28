@@ -2,7 +2,7 @@
   class="form-container"
   *ngIf="!loading && !businessIdea"
   [formGroup]="form"
-  (ngSubmit)="submit()"
+  (keydown.enter)="focusOnNextInputField($event)"
 >
   <app-personal-background
     class="form-section"
@@ -11,7 +11,7 @@
 
   <app-interests class="form-section" [form]="form"></app-interests>
 
-  <app-skills class="form-section" [form]="form"></app-skills>
+  <!-- <app-skills class="form-section" [form]="form"></app-skills> -->
 
   <app-resources class="form-section" [form]="form"></app-resources>
 
@@ -38,7 +38,8 @@
       mat-button
       color="primary"
       class="submit-btn primary-btn"
-      type="submit"
+      type="button"
+      (click)="submit()"
     >
       Generate Idea!
     </button>

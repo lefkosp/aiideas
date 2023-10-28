@@ -11,9 +11,40 @@
   max-width: 60%;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
+  z-index: 9;
 
-  h1 {
-    margin: 2rem 0 1rem 0;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    // position: fixed;
+    top: 0;
+    z-index: 99;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.2);
+    h1 {
+      margin: 2rem 0 1rem 0;
+    }
   }
+}
+
+.background-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/bbblurry.svg");
+  background-size: cover;
+}
+
+.background-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
