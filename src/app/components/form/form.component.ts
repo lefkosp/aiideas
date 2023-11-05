@@ -118,7 +118,7 @@ export class FormComponent implements OnInit {
         this.loadingService.setLoadingStatus(false);
         // Navigate to the Idea component with the businessIdea as a route parameter
         this.businessIdeaService.setIdea(this.businessIdea);
-        this.router.navigate(['/idea', { businessIdea: this.businessIdea }]);
+        this.router.navigate(['/idea']);
       },
       (error) => {
         console.error('Error generating business idea:', error);
