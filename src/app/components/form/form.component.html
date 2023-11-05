@@ -11,27 +11,13 @@
 
   <app-interests class="form-section" [form]="form"></app-interests>
 
-  <!-- <app-skills class="form-section" [form]="form"></app-skills> -->
+  <app-skills class="form-section" [form]="form"></app-skills>
 
   <app-resources class="form-section" [form]="form"></app-resources>
 
-  <app-market class="form-section" [form]="form"></app-market>
-
   <app-goals class="form-section" [form]="form"></app-goals>
 
-  <app-target-audience class="form-section" [form]="form"></app-target-audience>
-
-  <app-industry class="form-section" [form]="form"></app-industry>
-
-  <app-risk class="form-section" [form]="form"></app-risk>
-
-  <app-vision class="form-section" [form]="form"></app-vision>
-
   <app-time class="form-section" [form]="form"></app-time>
-
-  <app-geo class="form-section" [form]="form"></app-geo>
-
-  <app-legal class="form-section" [form]="form"></app-legal>
 
   <div class="actions-container form-section">
     <button
@@ -52,8 +38,4 @@
     <span>Thanks for submitting!</span>
     <span>Hang tight..</span>
   </div>
-</div>
-
-<div *ngIf="businessIdea && !loading">
-  {{ businessIdea }}
 </div>

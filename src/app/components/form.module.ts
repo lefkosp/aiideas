@@ -15,6 +15,7 @@ import { GeoComponent } from './form/geo/geo.component';
 import { LegalComponent } from './form/legal/legal.component';
 import { MaterialModule } from '../material/material.module';
 import { IndustryComponent } from './form/industry/industry.component';
+import { IdeaComponent } from './idea/idea.component';
 
 
 
@@ -33,7 +34,8 @@ import { IndustryComponent } from './form/industry/industry.component';
     TimeComponent,
     GeoComponent,
     LegalComponent,
-    IndustryComponent
+    IndustryComponent,
+    IdeaComponent
   ],
   imports: [
     MaterialModule,

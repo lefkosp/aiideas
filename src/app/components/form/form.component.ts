@@ -1,5 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BusinessIdeaService } from 'src/app/services/business-idea.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { OpenaiService } from 'src/app/services/openai.service';
 
 @Component({
@@ -12,39 +15,45 @@ export class FormComponent implements OnInit {
   public businessIdea: string | null = null;
   public loading: boolean = false;
 
-  constructor(private fb: FormBuilder, private openaiService: OpenaiService) {}
+  constructor(
+    private fb: FormBuilder,
+    private openaiService: OpenaiService,
+    private loadingService: LoadingService,
+    private businessIdeaService: BusinessIdeaService,
+    private router: Router
+  ) {}
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event): void {
-    // Determine the current scroll position
-    const scrollY = window.scrollY;
+  // @HostListener('window:scroll', ['$event'])
+  // onScroll(event: Event): void {
+  //   // Determine the current scroll position
+  //   const scrollY = window.scrollY;
 
-    // Calculate the index of the section to snap to
-    const sections = document.querySelectorAll('.form-section');
-    let targetSectionIndex = 0;
+  //   // Calculate the index of the section to snap to
+  //   const sections = document.querySelectorAll('.form-section');
+  //   let targetSectionIndex = 0;
 
-    for (let i = 0; i < sections.length; i++) {
-      const section = sections[i];
-      const sectionTop = section.getBoundingClientRect().top;
+  //   for (let i = 0; i < sections.length; i++) {
+  //     const section = sections[i];
+  //     const sectionTop = section.getBoundingClientRect().top;
 
-      if (sectionTop > scrollY) {
-        break; // Found the section to snap to
-      }
+  //     if (sectionTop > scrollY) {
+  //       break; // Found the section to snap to
+  //     }
 
-      targetSectionIndex = i;
-    }
+  //     targetSectionIndex = i;
+  //   }
 
-    // Scroll to the target section
-    const targetSection = sections[targetSectionIndex];
-    this.scrollToSection(targetSection);
-  }
+  //   // Scroll to the target section
+  //   const targetSection = sections[targetSectionIndex];
+  //   this.scrollToSection(targetSection);
+  // }
 
-  scrollToSection(section: Element): void {
-    section.scrollIntoView({
-      behavior: 'smooth', // Enable smooth scrolling
-      block: 'start', // Align the start of the section with the top of the viewport
-    });
-  }
+  // scrollToSection(section: Element): void {
+  //   section.scrollIntoView({
+  //     behavior: 'smooth', // Enable smooth scrolling
+  //     block: 'start', // Align the start of the section with the top of the viewport
+  //   });
+  // }
 
   public focusOnNextInputField(event: Event) {
     event.preventDefault();
@@ -84,21 +93,11 @@ export class FormComponent implements OnInit {
         budget: ['', Validators.nullValidator],
         physicalResources: ['', Validators.nullValidator],
       }),
-      marketPreferences: ['', Validators.nullValidator],
       goals: this.fb.group({
         shortTerm: ['', Validators.nullValidator],
         longTerm: ['', Validators.nullValidator],
       }),
-      targetAudience: this.fb.group({
-        targetAudience: ['', Validators.nullValidator],
-        audienceInsights: ['', Validators.nullValidator],
-      }),
-      industry: ['', Validators.nullValidator],
-      riskTolerance: ['', Validators.nullValidator],
-      vision: ['', Validators.nullValidator],
       time: ['', Validators.nullValidator],
-      geo: ['', Validators.nullValidator],
-      legal: ['', Validators.nullValidator],
     });
   }
 
@@ -110,13 +109,21 @@ export class FormComponent implements OnInit {
     if (this.form.invalid) return;
 
     this.loading = true;
+    this.loadingService.setLoadingStatus(true);
+
     this.openaiService.generateIdea(this.form).subscribe(
       (idea) => {
         this.businessIdea = idea;
         this.loading = false;
+        this.loadingService.setLoadingStatus(false);
+        // Navigate to the Idea component with the businessIdea as a route parameter
+        this.businessIdeaService.setIdea(this.businessIdea);
+        this.router.navigate(['/idea', { businessIdea: this.businessIdea }]);
       },
       (error) => {
         console.error('Error generating business idea:', error);
+        this.loading = false;
+        this.loadingService.setLoadingStatus(false);
       }
     );
   }
